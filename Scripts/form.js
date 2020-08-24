@@ -71,6 +71,9 @@ var formInternal = {
 		if(core.notNullOrEmpty(formModel.config.fields)) {
 			core.iterateArray(formModel.config.fields, formInternal.generateField, ele);
 		}
+		if (core.notNull(formModel.config.showSubmitButton)) {
+			formInternal.generateSubmitButton(formModel.config, ele);
+        }
 	},
 	generateField: function(config, ele) {
 		if(core.notNull(ele)) 
@@ -97,9 +100,39 @@ var formInternal = {
 			ele.appendChild(span);
 		}
 	},
+	generateSubmitButton(config, ele) {
+		
+		if (core.notNull(config.showSubmitButton) && config.showSubmitButton) {
+			var btn = document.createElement("button");
+			if (core.notNullOrEmpty(config.submitText)) {
+				btn.innerText = config.submitText;
+			} else {
+				btn.innerText = "Unspecified";
+			}
+			if (core.notNull(config.submitAction) && core.isFunction(config.submitAction)) {
+				btn.addEventListener('click', function () { config.submitAction(); });
+            }
+			
+			ele.appendChild(btn);
+		}
+    },
 	getData: function () {
-
+		//create a fancy object for the data to be presented back to the consumer.
+		if (core.notNull(this.config)) {
+			if (core.notNull(this.config.id)) {
+				var ele = core.getElementById(this.config.id);
+				var inputs = ele.getElementsByTagName("input");
+				var dataObject = {};
+				core.iterateArray(inputs, formInternal.mapInputToObject, dataObject);
+				return dataObject;
+            } 
+		}
 	},
+	mapInputToObject: function (input, dataObj) {
+		var name = input.name;
+		var value = input.value;
+		dataObj[name] = value;
+    },
 };
 
 
