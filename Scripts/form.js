@@ -70,16 +70,18 @@ var formInternal = {
 				label.innerHTML = config.label;
 				span.appendChild(label);
 			}
-			
-			if(core.notNullOrEmpty(config.type)) {
+
+			//then we can check a type was set..
+			if (core.notNullOrEmpty(config.type)) {
+				//then generate the input.
 				var input = document.createElement("input");
-				input.type = config.type;
+				if (core.notNullOrEmpty(config.type)) input.type = config.type;
+				if (core.notNullOrEmpty(config.id)) input.id = config.id;
+				if (core.notNullOrEmpty(config.name)) input.name = config.name;
 				span.appendChild(input);
 			}
 			ele.appendChild(span);
 		}
-		
-		
 	},
 };
 
