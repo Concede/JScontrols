@@ -5,7 +5,8 @@
 }
 
 .jsc-form {
-    width:100%;
+    width: 100%;
+    text-align: right;
 }
 
 .jsc-form.one-column span {
@@ -24,7 +25,6 @@
         box-sizing: padding-box;
         padding: 1% 2% 1% 2%;
         display: inline-block;
-        text-align:right;
     }
 
 .jsc-form span label {

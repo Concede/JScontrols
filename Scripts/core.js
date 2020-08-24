@@ -19,9 +19,16 @@ var core = {
 		//good for strings and arrays.
 		return core.notNull(obj) && obj.length > 0;
 	},
+	isIterable: function (obj) {
+		// checks for null and undefined
+		if (obj == null) {
+			return false;
+		}
+		return typeof obj[Symbol.iterator] === 'function';
+    },
 	iterateArray : function(arr, func, additional) {
 		//should probably check this is an actual array first...
-		if(!Array.isArray(arr)) {
+		if(!core.isIterable(arr)) {
 			console.error("This method only accepts an array as the first parameter");
 			return;
 		}
