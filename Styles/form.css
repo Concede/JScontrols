@@ -1,1 +1,31 @@
-﻿
+﻿body {
+    width:100%;
+    margin:0;
+    padding:0;
+}
+
+.jsc-form {
+    width:100%;
+}
+
+.jsc-form.one-column span {
+    width:100%;
+}
+
+.jsc-form.two-column span {
+    width: 46%;
+}
+
+.jsc-form.three-column span {
+    width: 29%;
+}
+
+    .jsc-form span {
+        box-sizing: padding-box;
+        padding: 2%;
+        display: inline-block;
+    }
+
+.jsc-form span label {
+    margin-right:10px;
+}

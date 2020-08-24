@@ -6,6 +6,7 @@ var form = function (config) {
 	this.create= formInternal.create;
 	this.setConfig = formInternal.setConfig;
 	this.getConfig = formInternal.getConfig;
+	this.getData = formInternal.getData;
 	
 
 	this.create();
@@ -13,6 +14,11 @@ var form = function (config) {
 }
 
 var formInternal = {
+	columnClasses: [
+		"one-column",
+		"two-column",
+		"three-column",
+	],
 	create : function() {
 		
 		//check config exists.
@@ -53,6 +59,14 @@ var formInternal = {
 		var ele = core.getElementById(formModel.config.id);
 		//fully reset the element.
 		ele.innerHTML = "";
+		//apply my css class.
+		ele.classList.add("jsc-form");
+		if (core.notNull(formModel.config.columns)) {
+			ele.classList.add(formInternal.columnClasses[formModel.config.columns - 1]);
+		}
+		else {
+			ele.classList.add(formInternal.columnClasses[0]);
+		}
 		//begin generation...
 		if(core.notNullOrEmpty(formModel.config.fields)) {
 			core.iterateArray(formModel.config.fields, formInternal.generateField, ele);
@@ -82,6 +96,9 @@ var formInternal = {
 			}
 			ele.appendChild(span);
 		}
+	},
+	getData: function () {
+
 	},
 };
 
