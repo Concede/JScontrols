@@ -15,6 +15,11 @@ These to do's are not in order of priority...
 * Basic Form Slider (Because who really likes ugly check boxes?)
   * Create with a simple function call, no config required.
   * true/false.
+* Basic toast messages
+  * Create toast message on demand based on config.
+  * Set area of the site to place top left, top center, top right, bottom left, bottom center, bottom right.
+  * Set width.
+  * Set colour ( via css ).
 * Basic Image Carousel 
   * Create an Image carousel.
   * Possibly achievable with just CSS3?
