@@ -22,7 +22,7 @@
 
     .jsc-form span {
         box-sizing: padding-box;
-        padding: 2%;
+        padding: 1% 2% 1% 2%;
         display: inline-block;
     }
 
