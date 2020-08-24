@@ -2,6 +2,12 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="Styles/form.css">
+
+	<style>
+        #test {
+            width: 300px;
+        }
+	</style>
 </head>
 <body>
 
@@ -16,25 +22,27 @@
 	
 	var formConfig = {
 		id: "test",
-		columns: 3,
+		columns: 1,
+		showSubmitButton: true,
+		submitText: "Submit",
+		submitAction: function () {
+			console.log(displayForm.getData());
+		},
 		fields: [
 			{
 				type:"text",
-				label: "test",
-				name: "test",
-				id: "test"
+				label: "First Name",
+				name: "fname",
 			},
             {
                 type: "text",
-                label: "test",
-                name: "test",
-                id: "test2"
+                label: "Family Name",
+                name: "sname",
             },
             {
                 type: "text",
-                label: "test",
-                name: "test",
-                id: "test3"
+                label: "Age",
+                name: "age",
             },
 		]
 	};
