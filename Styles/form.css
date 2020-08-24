@@ -30,3 +30,19 @@
 .jsc-form span label {
     margin-right:10px;
 }
+
+@media only screen and (max-width: 600px) {
+    /* Mobile rules */
+    /* ALWAYS one column*/
+    .jsc-form.one-column span {
+        width: 100%;
+    }
+
+    .jsc-form.two-column span {
+        width: 100%;
+    }
+
+    .jsc-form.three-column span {
+        width: 100%;
+    }
+}
