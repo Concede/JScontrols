@@ -24,6 +24,7 @@
         box-sizing: padding-box;
         padding: 1% 2% 1% 2%;
         display: inline-block;
+        text-align:right;
     }
 
 .jsc-form span label {
